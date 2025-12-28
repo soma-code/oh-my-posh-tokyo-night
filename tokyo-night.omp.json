@@ -1,34 +1,35 @@
-{
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
   "blocks": [
     {
-      "alignment": "left",
       "type": "prompt",
+      "alignment": "left",
       "segments": [
         {
           "type": "os",
-          "style": "plain",
-          "foreground": "#26C6DA",
-          "background": "#546E7A",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{ .Icon }}",
+          "style": "powerline",
+          "foreground": "#c0caf5",
+          "background": "#7e06f2",
+          "leading_diamond": " ",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{ .Icon }} ",
           "options": {
             "linux": "\uF31b"
           }
         },
         {
           "type": "session",
-          "style": "diamond",
-          "foreground": "#f8f8f2",
-          "background": "#6272a4",
-          "leading_diamond": "\ue0b6",
+          "style": "powerline",
+          "foreground": "#1a1b26",
+          "background": "#7f62f7",
+          "powerline_symbol": " ",
           "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} "
         },
         {
           "type": "path",
           "style": "powerline",
-          "foreground": "#f8f8f2",
-          "background": "#a248cc",
-          "powerline_symbol": "\ue0b0",
+          "foreground": "#1a1b26",
+          "background": "#7499fa",
+          "powerline_symbol": " ",
           "template": " {{ .Path }} ",
           "options": {
             "style": "folder"
@@ -37,52 +38,67 @@
         {
           "type": "git",
           "style": "powerline",
-          "foreground": "#f8f8f2",
-          "background": "#ffb86c",
-          "powerline_symbol": "\ue0b0",
-          "template": " \ue725 ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}) ",
-          "options": {
-            "branch_icon": "",
-            "fetch_status": false,
-            "fetch_upstream_icon": true
-          }
+          "foreground": "#1a1b26",
+          "background": "#3f7fe8",
+          "powerline_symbol": " ",
+          "template": "  {{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+        },
+        {
+          "type": "docker",
+          "style": "powerline",
+          "foreground": "#1a1b26",
+          "background": "#6055e9",
+          "powerline_symbol": " ",
+          "template": "  {{ .Context }} "
         },
         {
           "type": "node",
           "style": "powerline",
-          "foreground": "#f8f8f2",
-          "background": "#8be9fd",
-          "powerline_symbol": "\ue0b0",
-          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+          "foreground": "#1a1b26",
+          "background": "#5d00f7",
+          "powerline_symbol": " ",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "foreground": "#1a1b26",
+          "background": "#3a4cff",
+          "powerline_symbol": " ",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "java",
+          "style": "powerline",
+          "foreground": "#1a1b26",
+          "background": "#01fcf9",
+          "powerline_symbol": " ",
+          "template": "  {{ .Full }} "
         },
         {
           "type": "time",
           "style": "diamond",
-          "foreground": "#f8f8f2",
-          "background": "#ff757f",
-          "trailing_diamond": "\ue0b0",
-          "template": " \u2665 {{ .CurrentDate | date .Format }} ",
+          "foreground": "#1a1b26",
+          "background": "#51cbfd",
+          "trailing_diamond": " ",
+          "template": " ᚐᚈᚂᚐᚄ {{ .CurrentDate | date .Format }} ",
           "options": {
             "time_format": "15:04"
           }
-        }
-      ]
-    },
-    {
-      "alignment": "left",
-      "type": "rprompt",
-      "segments": [
+        },
         {
-          "type": "docker",
-          "style": "powerline",
-          "foreground": "#000000",
-          "background": "#0B59E7",
-          "powerline_symbol": "",
-          "template": "  {{ .Context }} "
+          "type": "status",
+          "style": "diamond",
+          "foreground": "#1a1b26",
+          "background": "#db4b4b",
+          "trailing_diamond": " ",
+          "leading_diamond": "",
+          "template": "   {{ .Code }} {{ if .Reason }}({{ .Reason }}){{ end }} ",
+          "options": {
+            "always_enabled": false
+          }
         }
       ]
     }
-  ],
-  "final_space": true,
-  "version": 4
+  ]
 }
