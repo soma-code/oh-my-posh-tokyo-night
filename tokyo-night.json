@@ -5,15 +5,25 @@
       "alignment": "left",
       "segments": [
         {
+        "type": "os",
+        "style": "plain",
+        "foreground": "#26C6DA",
+        "background": "#546E7A",
+        "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+        "options": {
+        "linux": "\uF31b"
+         }
+        }
+        {
           "background": "#6272a4",
           "foreground": "#f8f8f2",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": "{{ .UserName }} ",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
           "type": "session"
         },
         {
-          "background": "#bd93f9",
+          "background": "a248cc",
           "foreground": "#f8f8f2",
           "powerline_symbol": "\ue0b0",
           "options": {
@@ -45,7 +55,7 @@
           "type": "node"
         },
         {
-          "background": "#ff79c6",
+          "background": "ff757f",
           "foreground": "#f8f8f2",
           "options": {
             "time_format": "15:04"
@@ -62,14 +72,12 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#f1fa8c",
-          "foreground": "#282a36",
-          "invert_powerline": true,
-          "leading_diamond": "\ue0b2",
-          "style": "diamond",
-          "template": " \ue7ad {{.Profile}}{{if .Region}}@{{.Region}}{{end}}",
-          "trailing_diamond": "\ue0b4",
-          "type": "aws"
+          "type": "docker",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#000000",
+          "background": "#0B59E7",
+          "template": "  {{ .Context }} ""
         }
       ],
       "type": "rprompt"
