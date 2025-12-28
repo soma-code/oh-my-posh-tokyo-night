@@ -1,3 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 4,
   "final_space": true,
   "blocks": [
@@ -93,7 +95,7 @@
           "background": "#db4b4b",
           "trailing_diamond": " ",
           "leading_diamond": "",
-          "template": "   {{ .Code }} {{ if .Reason }}({{ .Reason }}){{ end }} ",
+          "template": "  {{ .Code }} {{ if .Text }}({{ .Text }}){{ end }} ",
           "options": {
             "always_enabled": false
           }
